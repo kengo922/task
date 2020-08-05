@@ -1,0 +1,23 @@
+%h2 授業一覧表
+%table
+  %tr
+    %th= sort_link(@q, :name, "教員名")
+    %th= sort_link(@q, :department_id, "学部")
+    %th= sort_link(@q, :subject_id, "科目")
+    %th= sort_link(@q, :day_id, "開講曜日")
+    %th= sort_link(@q, :limit_id, "開講時間" , default_order: :desc)
+    %th{:colspan => "3"}
+
+
+  - @teachers.each do |teacher|
+    %tr
+      %td
+        = teacher.name
+      %td
+        = teacher.department.name
+      %td
+        = teacher.subject.name
+      %td
+        = teacher.day.name
+      %td
+        = teacher.limit.name

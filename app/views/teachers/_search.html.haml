@@ -1,0 +1,22 @@
+%h2
+  検索内容
+
+- unless params[:q][:name_cont].empty?
+  教員名
+  = params[:q][:name_cont]
+  %br/
+- unless params[:q][:department_id_eq].empty?
+  学部
+  = Department.find(params[:q][:department_id_eq]).name
+  %br/
+- unless params[:q][:subject_id_eq].empty?
+  科目
+  = Subject.find(params[:q][:subject_id_eq]).name
+  %br/
+- unless params[:q][:day_id_eq].empty?
+  開講曜日
+  = Day.find(params[:q][:day_id_eq]).name
+  %br/
+- unless params[:q][:limit_id_eq].empty?
+  開講時間
+  = Limit.find(params[:q][:limit_id_eq]).name
