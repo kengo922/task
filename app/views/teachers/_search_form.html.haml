@@ -1,0 +1,27 @@
+= search_form_for(@q, url:search_path) do |f|
+  %p
+    = f.label :name_cont, '教員名'
+    = f.search_field :name_cont, placeholder: "教員名を入力してください", class: "input-form"
+
+  %p
+    = f.label :department_id_eq, '学部'
+    = f.collection_select :department_id_eq, @departments, :id, :name, include_blank: '指定なし', class: "select-default"
+
+  %p
+    = f.label :subject_id_eq, '科目'
+    = f.radio_button 'subject_id_eq', '', {:checked => true}
+    指定なし
+    = f.collection_radio_buttons :subject_id_eq, @subjects, :id, :name
+
+  %p
+    = f.label :day_id_eq, '開講曜日'
+    = f.radio_button 'day_id_eq', '', {:checked => true}
+    指定なし
+    = f.collection_radio_buttons :day_id_eq, @days, :id, :name
+
+  %p
+    = f.label :limit_id_eq, '開講時間'
+    = f.collection_select :limit_id_eq, @limits, :id, :name, include_blank: '指定なし', class: "select-default"
+
+  .form_submit
+    = f.submit "検索",class: "form_submit_bottun"
