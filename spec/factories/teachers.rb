@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :teacher do
     name { "MyString" }
-    department { nil }
-    subject { nil }
-    day { nil }
-    limit { nil }
+    department_id { 2 }
+    subject_id { 2 }
+    day_id { 3 }
+    limit_id { 4 }
   end
 end
